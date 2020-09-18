@@ -13,7 +13,7 @@ namespace Laba1Privet
             string name = Console.ReadLine(); //Ввод имени
             Console.WriteLine("Введи год своего рождения");
             int year = Int32.Parse(Console.ReadLine()); // ввод года
-            if (year <= 2020 || year >=0)
+            if (year <= 2020 && year >=1)
             { }
             else
             {

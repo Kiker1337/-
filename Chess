@@ -1,0 +1,39 @@
+using System;
+using System.Runtime.CompilerServices;
+
+namespace Chess
+{
+    class Program
+    {
+        public static bool check(string a)
+        {
+            if (a[0] >= 'A' && a[0] <= 'H' && a[1] >= '1' && a[1] <= '8') //метод проверяет координату по горизонтали от A до H 
+                return true;                                              //и координату по вертикали от 1 до 8
+            else
+                return false;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введи начальную позицию коня");
+            string coord1 = Console.ReadLine();
+            coord1 = coord1.ToUpper();                                  //Повышает регистр
+            Console.WriteLine("Введи конечную позицию коня");
+            string coord2 = Console.ReadLine();
+            coord2 = coord2.ToUpper();
+            if (check(coord1) && check(coord2))
+            {
+                int y = coord1[0] - coord2[0];                          //Длина хода по вертикали
+                int x = coord1[1] - coord2[1];                          //Длина хода по горизонтали 
+
+                if ((x * x) + (y * y) == 5)                             //Т. Пифагора которой можно проверить правильность хода коня
+                    Console.WriteLine("Это ход коня");
+                else
+                    Console.WriteLine("Это не ход коня");
+            }
+            else
+                Console.WriteLine("Что-то не так");
+
+
+        }
+    }
+}
